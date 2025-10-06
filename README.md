@@ -5,24 +5,21 @@
 ---
 
 ## 📘 Overview
-This repository provides replication materials and analysis code for the dissertation:  
+This repository contains replication materials and analytical code for the dissertation:  
 > *"Citizen Participation and Local Economic Growth in Vietnam: Evidence from Institutional Mediation Channels."*  
 
-The project investigates how **citizen participation** impacts **provincial economic growth** in Vietnam,  
-emphasizing the **mediating role of institutional quality** — particularly regulatory efficiency and labour training capacity.  
-
-Data include **63 provinces from 2012–2019** and the model uses **Structural Equation Modeling (SEM)** to test both direct and indirect effects.
+The dissertation investigates how citizen participation influences provincial-level economic growth in Vietnam, focusing on the **institutional mediation mechanisms** that shape this relationship.  
+Using panel data from **63 provinces during 2012–2019**, the study integrates indicators from the **Provincial Governance and Public Administration Performance Index (PAPI)** and the **Provincial Competitiveness Index (PCI)** within a **Structural Equation Modeling (SEM)** framework.  
+This approach enables the identification of both direct and indirect causal pathways between civic engagement, institutional performance, and economic outcomes.
 
 ---
 
 ## 🧠 Abstract
-Citizen participation enhances local governance and can indirectly promote economic growth.  
-By combining **PAPI (citizen participation)** and **PCI (governance quality)** indicators within a panel SEM framework,  
-the study finds that **voluntary civic engagement (CP4)** strengthens institutional capacity (PCI4, PCI8),  
-which then drives higher provincial **GDP per capita**.
-
-**In short:**  
-➡️ Participation → Better Institutions → Faster Growth.
+This study examines the relationship between citizen participation, institutional quality, and local economic growth in Vietnam.  
+The empirical findings demonstrate that **citizen participation affects economic performance primarily through institutional mediation channels**, rather than direct economic mechanisms.  
+Among the different forms of participation, **voluntary and collaborative engagement (CP4)** exerts the strongest positive indirect influence by enhancing **administrative efficiency (PCI4)** and **labour and training quality (PCI8)**.  
+Conversely, **complaint-oriented participation (CP3)** is associated with negative indirect effects through institutional inefficiency.  
+These results highlight that **effective and responsive local governance** is the critical mechanism through which civic engagement translates into sustainable provincial economic development.
 
 ---
 
