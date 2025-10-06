@@ -59,12 +59,12 @@ All variables are standardized and lagged by one year in the analysis.
 ## 📂 Repository Structure
 Citizen-Participation-VN/
 ├── code/
-│ └── main_SEM_analysis.R # main SEM pipeline (full model + robustness)
+│   └── main_SEM_analysis.R              # main SEM pipeline (full model + robustness)
 ├── data/
-│ └── vietnam_provincial_panel_2012_2019.xlsx # aggregated dataset (not public)
+│   └── vietnam_provincial_panel_2012_2019.xlsx   # aggregated dataset (not public)
 ├── output/
-│ ├── tables/ # regression and SEM outputs
-│ └── figures/ # diagrams and plots
+│   ├── tables/                         # regression and SEM outputs
+│   └── figures/                        # diagrams and plots
 └── README.md
 
 ---
