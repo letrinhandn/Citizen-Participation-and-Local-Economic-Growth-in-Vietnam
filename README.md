@@ -57,6 +57,7 @@ All variables are standardized and lagged by one year in the analysis.
 ---
 
 ## 📂 Repository Structure
+```
 Citizen-Participation-VN/
 ├── code/
 │   └── main_SEM_analysis.R              # main SEM pipeline (full model + robustness)
@@ -66,7 +67,7 @@ Citizen-Participation-VN/
 │   ├── tables/                         # regression and SEM outputs
 │   └── figures/                        # diagrams and plots
 └── README.md
-
+```
 ---
 
 ## 🚀 How to Reproduce
