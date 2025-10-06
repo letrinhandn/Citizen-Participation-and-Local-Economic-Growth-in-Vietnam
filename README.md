@@ -5,91 +5,100 @@
 ---
 
 ## 📘 Overview
-This project explores how **citizen participation** affects **local economic growth** in Vietnam, focusing on the **institutional mediation channels** — especially governance quality, regulatory efficiency, and workforce support.
+This repository provides replication materials and analysis code for the dissertation:  
+> *"Citizen Participation and Local Economic Growth in Vietnam: Evidence from Institutional Mediation Channels."*  
 
-Data cover **63 provinces (2012–2019)**, using **panel data** and **Structural Equation Modeling (SEM)** to test both direct and indirect effects of participation on economic outcomes.
+The project investigates how **citizen participation** impacts **provincial economic growth** in Vietnam,  
+emphasizing the **mediating role of institutional quality** — particularly regulatory efficiency and labour training capacity.  
+
+Data include **63 provinces from 2012–2019** and the model uses **Structural Equation Modeling (SEM)** to test both direct and indirect effects.
 
 ---
 
 ## 🧠 Abstract
-Citizen participation is key to local development.  
-Using PAPI (participation indices) and PCI (governance indices), this research shows that **citizen engagement—especially voluntary contributions—improves institutional quality**, which then leads to **higher provincial economic growth**.  
+Citizen participation enhances local governance and can indirectly promote economic growth.  
+By combining **PAPI (citizen participation)** and **PCI (governance quality)** indicators within a panel SEM framework,  
+the study finds that **voluntary civic engagement (CP4)** strengthens institutional capacity (PCI4, PCI8),  
+which then drives higher provincial **GDP per capita**.
 
-In short:  
-➡️ Participation → Better institutions → Faster growth.
+**In short:**  
+➡️ Participation → Better Institutions → Faster Growth.
 
 ---
 
 ## ⚙️ Methods and Tools
-- **Software:** R, Python, Stata  
-- **Key R packages:** `lavaan`, `tidyverse`, `ggplot2`, `stargazer`, `semPlot`  
-- **Main steps:**
-  1. Clean and merge panel data (2012–2019)  
-  2. Run descriptive statistics  
-  3. Estimate SEM with indirect effects  
-  4. Visualize results (tables, path diagrams)
+- **Software:** R (main), Python (optional), Stata (for reference)
+- **Key Packages:** `lavaan`, `tidyverse`, `ggplot2`, `semPlot`, `car`, `Hmisc`, `openxlsx`
+- **Techniques:**  
+  - Panel SEM (2012–2019)  
+  - Bootstrapped indirect effects  
+  - Robustness tests (outlier trimming)  
+  - Case study comparisons (Quang Ninh vs Dong Thap)
 
 ---
 
 ## 📊 Data
-- **Source:** Vietnam’s PAPI, PCI, and GSO statistics (confidential – not shared)  
+- **File:** `vietnam_provincial_panel_2012_2019.xlsx`  
+- **Source:** Provincial-level indicators from Vietnam’s PAPI, PCI, and GSO datasets (confidential)  
 - **Level:** 63 provinces × 8 years (2012–2019)  
 
 | Variable | Description |
 |-----------|--------------|
-| `CP1–CP4` | PAPI citizen participation sub-indices |
+| `Province` | Province name |
+| `Year` | Year (2012–2019) |
+| `CP1–CP4` | PAPI citizen participation subindices |
 | `PCI4` | Time costs & regulatory compliance |
 | `PCI8` | Labour & training quality |
-| `GRDPperCap` | Provincial GDP per capita (log) |
-| `Avg_Income` | Average monthly income |
+| `GRDPperCap2010` | Provincial GDP per capita (2010 constant prices) |
+| `Avg_Income` | Average monthly income (VND) |
 
-All variables are standardized and lagged 1 year where applicable.
+All variables are standardized and lagged by one year in the analysis.
 
 ---
 
-## 🧩 Key Findings
-- **Indirect-only mediation:** Participation affects growth through institutions, not directly.  
-- **Most influential path:**  
-  `CP4 (Voluntary contributions) → PCI8 (Labour & training) → GRDP per capita`  
-- **Fit statistics:** Excellent model fit (CFI ≈ 1.00, RMSEA ≈ 0.00)  
-- **Policy insight:**  
-  Grassroots engagement works best when paired with transparent and efficient local governance.
+## 📂 Repository Structure
+Citizen-Participation-VN/
+├── code/
+│ └── main_SEM_analysis.R # main SEM pipeline (full model + robustness)
+├── data/
+│ └── vietnam_provincial_panel_2012_2019.xlsx # aggregated dataset (not public)
+├── output/
+│ ├── tables/ # regression and SEM outputs
+│ └── figures/ # diagrams and plots
+└── README.md
 
 ---
 
 ## 🚀 How to Reproduce
-To replicate the analysis, follow these steps:
+**Step 1.** Open RStudio and set the working directory to the repository root.  
 
-**Step 1. Install dependencies**
+**Step 2.** Ensure the data file is located in `data/vietnam_provincial_panel_2012_2019.xlsx`.  
 
-Run the following in R:
-- `install.packages("lavaan")`  
-- `install.packages("tidyverse")`  
-- `install.packages("ggplot2")`  
-- `install.packages("semPlot")`
+**Step 3.** Run the analysis by executing: source("code/main_SEM_analysis.R")
 
-**Step 2. Prepare data**  
-- Place your cleaned or raw data files inside the `data/` folder.  
-- Make sure variables follow the structure described above (PAPI, PCI, GRDP, etc.).
+**Step 4.** Results will be saved automatically to the output/ folder:
 
-**Step 3. Run scripts in order**
-1. `01_data_cleaning.R` – Clean and merge panel data  
-2. `02_descriptive_stats.R` – Generate descriptive tables and plots  
-3. `03_SEM_model.R` – Estimate the SEM model and compute indirect effects  
-4. `04_visualizations.py` – Produce visual outputs and figures  
+- output/tables/ → Descriptive stats, SEM results, bootstrap & robustness tables
 
-**Step 4. Review results**  
-- Outputs (tables, model summaries, and plots) will be saved automatically to the `output/` directory.  
-- You can open figures in `/output/figures/` and tables in `/output/tables/`.
+- output/figures/ → Path diagrams and provincial comparisons
 
-✅ *Tip:* Use **RStudio** or **VSCode** for the R scripts and ensure your working directory is set to the project root.
+✅ Tip: The script will automatically create lag variables and perform all diagnostics.
+
+---
+
+## 🧩 Key Outputs
+- **Main SEM results:** `SEM_main_results.xlsx`  
+- **Bootstrap robustness (1,000 reps):** `SEM_bootstrap_results.xlsx`  
+- **Trimmed outlier robustness:** `SEM_trimmed_results.xlsx`  
+- **Fit indices summary:** `SEM_fit_indices.xlsx`  
+- **Case study charts:** Quang Ninh vs Dong Thap (`CP4`, `PCI4`, `PCI8`, `GRDP`)
 
 ---
 
 ## 🧭 Notes
-- Model uses **lagged variables** and **bootstrapped indirect effects**.  
-- Data are **not public** — replicate only with authorized access.  
-- The analysis focuses on **long-term relationships**, not short-term causality.
+- The model uses **lagged predictors** and **bootstrapped indirect effects**.  
+- Data are **confidential** — replication requires authorized access.  
+- The focus is on **long-term institutional mediation**, not short-term shocks.
 
 ---
 
@@ -107,8 +116,6 @@ Academic citation is encouraged.
 ---
 
 ## 📬 Contact
-- ✉️ **Email:** letrinhan123@gmail.com  
-- 🔗 **LinkedIn:** [linkedin.com/in/letrinhan](https://linkedin.com/in/letrinhan)  
-- 💻 **GitHub:** [github.com/letrinhandn](https://github.com/letrinhandn)
-
-   
+- ✉️ **Email:** letrinhan123@gmail.com
+- 🔗 LinkedIn: linkedin.com/in/letrinhan
+- 💻 GitHub: github.com/letrinhandn
