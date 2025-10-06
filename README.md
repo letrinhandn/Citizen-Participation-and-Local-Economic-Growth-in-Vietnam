@@ -117,6 +117,7 @@ Academic citation is encouraged.
 ---
 
 ## 📬 Contact
-- ✉️ **Email:** letrinhan123@gmail.com
-- 🔗 LinkedIn: linkedin.com/in/letrinhan
-- 💻 GitHub: github.com/letrinhandn
+- ✉️ **Email:** [letrinhan123@gmail.com](mailto:letrinhan123@gmail.com)  
+- 🔗 **LinkedIn:** [linkedin.com/in/letrinhan](https://linkedin.com/in/letrinhan)  
+- 💻 **GitHub:** [github.com/letrinhandn](https://github.com/letrinhandn)
+
