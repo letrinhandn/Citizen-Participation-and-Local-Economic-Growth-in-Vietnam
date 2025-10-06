@@ -1,84 +1,114 @@
-# Citizen Participation and Local Economic Growth in Vietnam
-
-Replication materials and data analysis for  
-*“Citizen Participation and Local Economic Growth in Vietnam: Evidence from Institutional Mediation Channels”*  
-(London School of Economics – GV499 Dissertation, 2025)
+# Citizen Participation and Local Economic Growth in Vietnam  
+**Replication materials for the LSE GV499 Dissertation (2025)**  
+**Author:** Le Tri Nhan  
 
 ---
 
-## 📄 Overview
-This repository contains replication code, analytical scripts, and documentation for the dissertation exploring how **citizen participation** influences **local economic growth** in Vietnam through **institutional mediation channels**.
+## 📘 Overview
+This project explores how **citizen participation** affects **local economic growth** in Vietnam, focusing on the **institutional mediation channels** — especially governance quality, regulatory efficiency, and workforce support.
 
-The study employs panel data (2012–2019) and applies **Structural Equation Modeling (SEM)** to assess causal relationships between governance quality, citizen engagement, and economic performance.
+Data cover **63 provinces (2012–2019)**, using **panel data** and **Structural Equation Modeling (SEM)** to test both direct and indirect effects of participation on economic outcomes.
 
 ---
 
 ## 🧠 Abstract
-Citizen participation is a critical component of effective governance and local development.  
-This research investigates how different forms of civic engagement impact provincial-level economic growth in Vietnam, emphasizing the mediating role of institutional quality.  
-Using panel data from 63 provinces between 2012 and 2019, the study integrates **governance indicators** (PCI indices) into a **SEM framework** to identify both direct and indirect effects of participation.  
-Findings suggest that citizen participation positively affects economic growth, both directly and indirectly through institutional efficiency, transparency, and business support capacity.
+Citizen participation is key to local development.  
+Using PAPI (participation indices) and PCI (governance indices), this research shows that **citizen engagement—especially voluntary contributions—improves institutional quality**, which then leads to **higher provincial economic growth**.  
+
+In short:  
+➡️ Participation → Better institutions → Faster growth.
 
 ---
 
-## 🧰 Tools and Methods
-- **Software:** R, Python, STATA  
-- **Key Packages:** `lavaan`, `tidyverse`, `ggplot2`, `stargazer`, `semPlot`  
-- **Techniques:** Data cleaning, descriptive statistics, SEM modeling, regression diagnostics, robustness checks, and data visualization  
-- **Data:** Provincial-level panel data from the Vietnam Provincial Competitiveness Index (PCI), 2012–2019  
+## ⚙️ Methods and Tools
+- **Software:** R, Python, Stata  
+- **Key R packages:** `lavaan`, `tidyverse`, `ggplot2`, `stargazer`, `semPlot`  
+- **Main steps:**
+  1. Clean and merge panel data (2012–2019)  
+  2. Run descriptive statistics  
+  3. Estimate SEM with indirect effects  
+  4. Visualize results (tables, path diagrams)
 
 ---
 
-## 📂 Repository Structure
-/code – R, Python, and STATA scripts
-/data – (not included; confidential dataset)
-/output – model results, figures, and tables
-/docs – dissertation and supplementary materials
+## 📊 Data
+- **Source:** Vietnam’s PAPI, PCI, and GSO statistics (confidential – not shared)  
+- **Level:** 63 provinces × 8 years (2012–2019)  
+
+| Variable | Description |
+|-----------|--------------|
+| `CP1–CP4` | PAPI citizen participation sub-indices |
+| `PCI4` | Time costs & regulatory compliance |
+| `PCI8` | Labour & training quality |
+| `GRDPperCap` | Provincial GDP per capita (log) |
+| `Avg_Income` | Average monthly income |
+
+All variables are standardized and lagged 1 year where applicable.
 
 ---
 
-## 📊 Example Workflow
-1. Load data and perform cleaning (`code/01_data_cleaning.R`)
-2. Conduct descriptive and correlation analysis (`code/02_descriptive_stats.R`)
-3. Estimate SEM models (`code/03_SEM_model.R`)
-4. Generate tables and figures (`code/04_visualizations.py`)
-
-All scripts are modular and reproducible within RStudio or STATA environments.
-
----
-
-## 🧩 Methodological Notes
-- **Dependent Variable:** Provincial GDP per capita (log-transformed)  
-- **Mediating Variables:** PCI indicators on institutional quality (entry costs, transparency, labor and training)  
-- **Independent Variable:** Citizen participation index  
-- **Controls:** Infrastructure, education, FDI inflows, and fiscal expenditure  
-- **Model:** Structural Equation Modeling (SEM) with bootstrapped indirect effects
+## 🧩 Key Findings
+- **Indirect-only mediation:** Participation affects growth through institutions, not directly.  
+- **Most influential path:**  
+  `CP4 (Voluntary contributions) → PCI8 (Labour & training) → GRDP per capita`  
+- **Fit statistics:** Excellent model fit (CFI ≈ 1.00, RMSEA ≈ 0.00)  
+- **Policy insight:**  
+  Grassroots engagement works best when paired with transparent and efficient local governance.
 
 ---
 
-## 📘 Citation
-If you reference or build upon this work, please cite as:
+## 🚀 How to Reproduce
+To replicate the analysis, follow these steps:
 
+**Step 1. Install dependencies**
+
+Run the following in R:
+- `install.packages("lavaan")`  
+- `install.packages("tidyverse")`  
+- `install.packages("ggplot2")`  
+- `install.packages("semPlot")`
+
+**Step 2. Prepare data**  
+- Place your cleaned or raw data files inside the `data/` folder.  
+- Make sure variables follow the structure described above (PAPI, PCI, GRDP, etc.).
+
+**Step 3. Run scripts in order**
+1. `01_data_cleaning.R` – Clean and merge panel data  
+2. `02_descriptive_stats.R` – Generate descriptive tables and plots  
+3. `03_SEM_model.R` – Estimate the SEM model and compute indirect effects  
+4. `04_visualizations.py` – Produce visual outputs and figures  
+
+**Step 4. Review results**  
+- Outputs (tables, model summaries, and plots) will be saved automatically to the `output/` directory.  
+- You can open figures in `/output/figures/` and tables in `/output/tables/`.
+
+✅ *Tip:* Use **RStudio** or **VSCode** for the R scripts and ensure your working directory is set to the project root.
+
+---
+
+## 🧭 Notes
+- Model uses **lagged variables** and **bootstrapped indirect effects**.  
+- Data are **not public** — replicate only with authorized access.  
+- The analysis focuses on **long-term relationships**, not short-term causality.
+
+---
+
+## 📚 Citation
 > Le Tri Nhan (2025). *Citizen Participation and Local Economic Growth in Vietnam: Evidence from Institutional Mediation Channels.*  
 > London School of Economics, GV499 Dissertation.
 
 ---
 
-## 📄 License
-**Academic Copyright License (All Rights Reserved)**  
-© 2025 Nhan Le Tri.  
-This work and all associated materials are protected by copyright.  
-No portion may be copied, distributed, or modified without explicit written permission from the author.  
-Brief quotations and academic citations are permitted with proper acknowledgment.
+## 🔏 License
+**© 2025 Le Tri Nhan. All Rights Reserved.**  
+Use or modification requires written permission.  
+Academic citation is encouraged.
 
 ---
 
 ## 📬 Contact
-**Author:** Le Tri Nhan  
-- ✉️ Email: letrinhan123@gmail.com
-- 🔗 LinkedIn: [linkedin.com/in/letrinhan](https://www.linkedin.com/in/letrinhan)  
-- 💻 GitHub: [github.com/letrinhandn](https://github.com/letrinhandn)
+- ✉️ **Email:** letrinhan123@gmail.com  
+- 🔗 **LinkedIn:** [linkedin.com/in/letrinhan](https://linkedin.com/in/letrinhan)  
+- 💻 **GitHub:** [github.com/letrinhandn](https://github.com/letrinhandn)
 
----
-
-📘 *This repository follows the academic integrity standards of the London School of Economics and complies with research data protection and intellectual property regulations.*
+   
