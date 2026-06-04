@@ -431,9 +431,5 @@ write.xlsx(tab_indirect, "output/tables/10_indirect_effects.xlsx", overwrite = T
 # END
 ################################################################################
 
-cat("\n", rep("=", 80), "\n", sep = "")
-cat("ANALYSIS COMPLETE\n")
-cat(rep("=", 80), "\n", sep = "")
-cat("\nAll outputs saved in: output/\n")
-cat("  - Tables: output/tables/\n")
+message("Analysis complete. Outputs written to output/")
 cat("  - Figures: output/figures/\n\n")
